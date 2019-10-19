@@ -3,6 +3,7 @@ package com.promineotech.finalProjectApi.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,8 +13,9 @@ import javax.persistence.OneToOne;
 
 import com.promineotech.finalProjectApi.entity.Address;
 import com.promineotech.finalProjectApi.entity.Order;
+import com.promineotech.finalProjectApi.util.SustainabilityProceeds;
 
-
+@Entity
 public class Customer {
 
 	
@@ -24,6 +26,8 @@ public class Customer {
 	private Set<CustomerReview> reviews;
 	
 	private Set<Order> orders;
+	
+	private SustainabilityProceeds proceeds;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -69,5 +73,11 @@ public class Customer {
 	}
 	public void setReviews(Set<CustomerReview> reviews) {
 		this.reviews = reviews;
+	}
+	public SustainabilityProceeds getProceeds() {
+		return proceeds;
+	}
+	public void setProceeds(SustainabilityProceeds proceeds) {
+		this.proceeds = proceeds;
 	}
 }
